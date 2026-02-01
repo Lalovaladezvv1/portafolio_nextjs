@@ -1123,20 +1123,29 @@ header {
 }
 
 
+#education {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 24px;
+    justify-content: center; 
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.education-card {
+    flex: 1 1 300px; 
+    max-width: 520px; 
+    padding: 16px;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+}
+
 #education .education-card:first-child {
     margin-top: 24px;
 }
 
 .education-card:not(:first-child) {
     margin-top: 24px;
-}
-
-.education-card {
-    padding: 16px;
-    border-radius: 12px;
-    max-width: 520px;
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(255,255,255,0.08);
 }
 
 .education-row {
@@ -1190,6 +1199,17 @@ header {
 .education-credential strong {
     color: #fff;
     font-weight: 600;
+}
+
+@media (max-width: 600px) {
+    .education-card {
+        flex: 1 1 100%; 
+    }
+
+    .education-row {
+        flex-direction: column;
+        align-items: flex-start;
+    }
 }
 
 
