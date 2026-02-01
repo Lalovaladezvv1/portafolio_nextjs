@@ -95,6 +95,7 @@ export default function AboutSection() {
                                                 <li>• Html</li>
                                                 <li>• Css</li>
                                                 <li>• Javascript</li>
+                                                <li>• React</li>
                                                 <li>• PHP</li>
                                             </ul>
                                         </li>
