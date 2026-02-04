@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
-import { Educacion } from "@/Tipos/Educacion";
+import { Educacion } from "@/tipos/Educacion";
 
 
 export default function AboutSection() {
