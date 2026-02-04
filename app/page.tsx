@@ -7,10 +7,13 @@ import AboutSection from "@/components/AboutSection";
 import ExperienceSection from "@/components/ExperienceSection";
 import AchievementsSection from "@/components/AchievementsSection";
 import ContactSection from "@/components/ContactSection";
+import Preloader from "@/components/Preloader";
 
 export default function Page() {
+
+  
   return (
-    <>
+     <Preloader>
       <Header />
 
       <main>
@@ -22,6 +25,6 @@ export default function Page() {
       </main>
 
       <Footer />
-    </>
+    </Preloader>
   );
 }
