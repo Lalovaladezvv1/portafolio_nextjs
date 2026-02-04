@@ -1,8 +1,30 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { Educacion } from "@/Tipos/Educacion";
+
 
 export default function AboutSection() {
     const [active, setActive] = useState(0);
+
+    const [educacion, setEducacion] = useState<Educacion[]>([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState<string | null>(null);
+
+    useEffect(() => {
+        fetch("/api/educacion")
+            .then(res => {
+                if (!res.ok) throw new Error(`Error ${res.status}`);
+                return res.json();
+            })
+            .then(data => {
+                setEducacion(data);
+            })
+            .catch(err => {
+                console.error("Error de API:", err);
+                setError(err.message);
+            })
+            .finally(() => setLoading(false));
+    }, []);
 
     return (
         <section className="about container" id="about">
@@ -142,42 +164,32 @@ export default function AboutSection() {
 
                             {active === 1 && (
                                 <div className="active" id="education">
-                                    <div className="education-card active">
-                                        <div className="education-row">
-                                            <span className="education-degree">Licenciatura</span>
-                                            <span className="education-school">UPPE</span>
-                                        </div>
+                                    <div>
+                                        {Array.isArray(educacion) && educacion.length > 0 ? (
+                                            educacion.map((edu: any) => (
+                                                <div  key={edu.id} className="education-card active">
+                                                    <div className="education-row">
+                                                        <span className="education-degree">{edu.grado}</span>
+                                                        <span className="education-school">{edu.estatus}</span>
+                                                    </div>
 
-                                        <h3 className="education-title">Ingeniería en Software</h3>
+                                                    <h3 className="education-title">{edu.nombreCarrera}</h3>
 
-                                        <p className="education-subtitle">
-                                            Universidad Politécnica de Pénjamo
-                                        </p>
+                                                    <p className="education-subtitle">
+                                                        {edu.escuela}
+                                                    </p>
 
-                                        <div className="education-credential">
-                                            <span>Cédula profesional</span>
-                                            <strong>14881565</strong>
-                                        </div>
+                                                    <div className="education-credential">
+                                                        {edu.cedulaProfesional && (
+                                                            <span>Cédula Profesional: {edu.cedulaProfesional}</span>
+                                                        )}
+                                                    </div>
+                                                </div>
+                                            ))
+                                        ) : (
+                                            <p>Cargando educación...</p>
+                                        )}
                                     </div>
-
-                                    <div className="education-card active">
-                                        <div className="education-row">
-                                            <span className="education-degree">Maestría</span>
-                                            <span className="education-school">UVEG</span>
-                                        </div>
-
-                                        <h3 className="education-title">Inteligencia Artificial</h3>
-
-                                        <p className="education-subtitle">
-                                            Universidad Virtual del Estado de Guanajuato
-                                        </p>
-
-                                        <div className="education-credential">
-                                            <span>En curso</span>
-                                        </div>
-                                    </div>
-
-
                                 </div>
                             )}
                         </div>
