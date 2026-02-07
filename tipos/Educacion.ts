@@ -1,8 +1,8 @@
 export interface Educacion {
-  id: number;
+  id?: number;
   escuela: string;
   grado: string;
   nombreCarrera: string;
-  cedulaProfesional?: string;
+  cedulaProfesional: string;
   estatus: string;
 }

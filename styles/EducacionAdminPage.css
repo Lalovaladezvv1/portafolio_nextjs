@@ -1,0 +1,143 @@
+.container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 20px;
+    font-family: 'Arial', sans-serif;
+}
+
+.title {
+    text-align: center;
+    font-size: 2rem;
+    color: #546eff;
+    margin-bottom: 30px;
+}
+
+.form-card {
+    background: rgba(255, 255, 255, 0.04);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-card input {
+    border: none;
+    outline: none;
+    font-size: 0.9rem;
+    padding: 15px;
+    color: var(--bg-color);
+    background: var(--box-color);
+    border-radius: 0.4rem;
+}
+
+.form-card input:focus {
+    outline: none;
+    border-color: #546eff;
+    box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.2);
+}
+
+.form-card button {
+    padding: 10px;
+    border: none;
+    background-color: #546eff;
+    color: white;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.form-card button:hover {
+    background-color: #546eff;
+}
+
+.crud-table {
+    width: 100%;
+    border-collapse: collapse;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.crud-table th,
+.crud-table td {
+    border: 1px solid var(--box-color);
+    padding: 10px 12px;
+    text-align: left;
+}
+
+.crud-table th {
+    background-color: #546eff;
+    color: white;
+    font-weight: bold;
+}
+
+.crud-table tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.04);
+}
+
+.crud-table tr:hover {
+    background-color: var(--box-color);
+}
+
+.actions {
+    display: flex;
+    gap: 10px;
+}
+
+.edit-btn {
+    background-color: #facc15;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.edit-btn:hover {
+    background-color: #eab308;
+}
+
+.delete-btn {
+    background-color: #ef4444;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+}
+
+.delete-btn:hover {
+    background-color: #b91c1c;
+}
+
+.error-text {
+    color: #ef4444;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.loading-text {
+    color: #4b5563;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .form-card {
+    grid-template-columns: 1fr;
+  }
+
+  .crud-table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .crud-table th,
+  .crud-table td {
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+}
