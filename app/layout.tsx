@@ -1,6 +1,7 @@
 import "../styles/style.css";
 import Script from "next/script";
 import type { Metadata } from "next";
+import { AuthProvider } from "@/context/AuthContext";
 
 export const metadata: Metadata = {
   title: "Eduardo Valadez",
@@ -31,7 +32,7 @@ export default function RootLayout({
       </head>
       <body>
         
-        {children}
+        <AuthProvider>{children}</AuthProvider>
 
         <Script
           src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"
